@@ -19,16 +19,22 @@ echo '1 - Jogar' . PHP_EOL;
 $opcao = readline();
 
 
-if ($opcao == 0) {
-    exit();
-} else {
-    desenhaBorda($larguraBorda, $alturaBorda);
+while (true) {
+    if ($opcao == 0) {
+        break;
+    } else {
+        $escolheDir = readline('Escolha a direção da cobra (WASD): ');
+        $cobra->moverCobra($escolheDir);
 
-    for ($i = 0; $i < $larguraBorda; $i++) {
-        for ($j = 0; $j < $alturaBorda; $j++) {
-            $campoTotal[$i][$j] = [$larguraBorda, $alturaBorda]; //Todas as coordenadas em uma matriz
+        desenhaBorda($larguraBorda, $alturaBorda);
+
+        for ($i = 0; $i < $larguraBorda; $i++) {
+            for ($j = 0; $j < $alturaBorda; $j++) {
+                $campoTotal[$i][$j] = [$larguraBorda, $alturaBorda]; //Todas as coordenadas em uma matriz
+            }
         }
     }
+
 }
 
 function desenhaBorda($larguraBorda, $alturaBorda){
@@ -38,12 +44,3 @@ function desenhaBorda($larguraBorda, $alturaBorda){
     }
     echo str_repeat('-', $larguraBorda) . PHP_EOL;
 }
-
-
-
-
-
-
-
-
-
