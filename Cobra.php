@@ -11,12 +11,12 @@ class Cobra
     {
         $this->x = $x;
         $this->y = $y;
-        $this->tamanhoCobra = [];
+        $this->tamanhoCobra = [[$this->x, $this->y]];
         $this->totalCobra = 1;
     }
 
     public function desenha() {
-        for ($i = 0; $i < $this->totalCobra; $i++) {
+        foreach ($this->tamanhoCobra as $tamanho) {
             echo '0';
         }
     }
@@ -27,6 +27,7 @@ class Cobra
             $maca->gerarCoordenada();
             $maca->desenha();
             $cobra->totalCobra += 1;
+            $this->tamanhoCobra = [[$this->x, $this->y]];
         }
     }
 }
