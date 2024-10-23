@@ -11,11 +11,7 @@ class Maca
     }
 
     public function gerarCoordenada() {
-        $this->x = rand(0, 29);
-        $this->y = rand(0, 14);
-    }
-
-    public function desenha() {
-        echo '*';
+        $this->x = rand(1,10);
+        $this->y = rand(1,10);
     }
 }
