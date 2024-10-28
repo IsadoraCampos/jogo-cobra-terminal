@@ -15,12 +15,13 @@ class Cobra
         $this->totalCobra = 0;
     }
 
-    public function comerMaca(Cobra $cobra, Maca $maca) : void
+    public function comerMaca(Cobra $cobra, Maca $maca, Pontuacao $pontuacao) : void
     {
         if ($cobra->x === $maca->x && $cobra->y === $maca->y) {
             $maca->gerarCoordenada();
             $this->totalCobra += 1;
             $this->tamanhoCobra = [[$this->x, $this->y]];
+            $pontuacao->pontuacao += 1;
         }
     }
 
@@ -30,22 +31,22 @@ class Cobra
             echo '0';
         }
     }
-        
-        
+
+
     public function moverCobra(string $direcao) : void{
-            if ($direcao == 'W' or $direcao == 'w') {
-                $this->x--;
-            }
-            if ($direcao == 'S' or $direcao == 's') {
-                $this->x++;
-            }
-            if ($direcao == 'A' or $direcao == 'a') {
-                $this->y--;
-            }
-            if ($direcao == 'D' or $direcao == 'd') {
-                $this->y++;
-            }
+        if ($direcao == 'W' or $direcao == 'w') {
+            $this->x++;
         }
+        if ($direcao == 'S' or $direcao == 's') {
+            $this->x--;
+        }
+        if ($direcao == 'A' or $direcao == 'a') {
+            $this->y--;
+        }
+        if ($direcao == 'D' or $direcao == 'd') {
+            $this->y++;
+        }
+    }
 
     public function morre(Cobra $cobra) : bool {
         for ($i = 1; $i < count($cobra->tamanhoCobra); $i++) {
@@ -56,4 +57,3 @@ class Cobra
         return false;
     }
 }
-
