@@ -2,12 +2,12 @@
 
 require 'Cobra.php';
 require 'Maca.php';
+require 'Pontuacao.php';
 
 $larguraBorda = 30;
 $alturaBorda = 15;
+$pontuacao = new Pontuacao();
 $cobra = new Cobra(5,5);
-$maca = new Maca();
-$cobra = new Cobra(10,10);
 $maca = new Maca();
 
 echo PHP_EOL;
@@ -46,7 +46,7 @@ while (true) {
 
         $escolheDir = readline('Escolha a direção da cobra (WASD): ');
         $cobra->moverCobra($escolheDir);
-        $cobra->comerMaca($cobra, $maca);
+        $cobra->comerMaca($cobra, $maca, $pontuacao);
 
         if ($cobra->totalCobra == count($cobra->tamanhoCobra)) {
             array_shift($cobra->tamanhoCobra);
@@ -59,11 +59,13 @@ while (true) {
         //Verifica se a cobra bateu nas bordas
         if ($cobra->x < 0 || $cobra->x > $alturaBorda || $cobra->y < 0 || $cobra->y > $larguraBorda) {
             echo 'Fim de Jogo!' . PHP_EOL;
+            echo 'Pontuação: ' . $pontuacao->getPontuacao() . PHP_EOL;
             $opcao = 0;
         }
 
         if ($cobra->morre($cobra)) {
             echo 'Fim de Jogo!' . PHP_EOL;
+            echo 'Pontuação: ' . $pontuacao->getPontuacao() . PHP_EOL;
             $opcao = 0;
         }
     }
