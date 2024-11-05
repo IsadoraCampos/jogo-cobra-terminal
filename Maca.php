@@ -10,5 +10,8 @@ class Maca
         $this->gerarCoordenada();
     }
 
+    public function gerarCoordenada() {
+        $this->x = rand(1,10);
+        $this->y = rand(1,10);
     }
 }
