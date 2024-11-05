@@ -7,6 +7,9 @@ $larguraBorda = 30;
 $alturaBorda = 15;
 $cobra = new Cobra(5,5);
 $maca = new Maca();
+$cobra = new Cobra(10,10);
+$maca = new Maca();
+$cabecaCobra = [$cobra->x, $cobra->y];
 
 echo PHP_EOL;
 echo '----- SNAKE GAME -----' . PHP_EOL;
@@ -21,6 +24,7 @@ while (true) {
     if ($opcao == 0) {
         break;
     } else {
+
         desenhaCampo($larguraBorda, $alturaBorda, $cobra, $maca);
 
         $escolheDir = readline('Escolha a direção da cobra (WASD): ');
@@ -44,12 +48,12 @@ while (true) {
         if ($cobra->morre($cobra)) {
             echo 'Fim de Jogo!' . PHP_EOL;
             $opcao = 0;
-        }
     }
-
 }
 
-function desenhaCampo($larguraBorda, $alturaBorda, Cobra $cobra, Maca $maca){
+
+function desenhaCampo($larguraBorda, $alturaBorda, Cobra $cobra, Maca $maca)
+{
     echo str_repeat('-', $larguraBorda) . PHP_EOL;
 
     for ($x = 0; $x < $alturaBorda; $x++) {
@@ -65,4 +69,8 @@ function desenhaCampo($larguraBorda, $alturaBorda, Cobra $cobra, Maca $maca){
     }
 
     echo str_repeat('-', $larguraBorda) . PHP_EOL;
+   }
 }
+
+
+
