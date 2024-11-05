@@ -15,3 +15,6 @@ class Maca
         $this->y = rand(1,10);
     }
 }
+
+
+
