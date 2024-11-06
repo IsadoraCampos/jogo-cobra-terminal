@@ -22,8 +22,8 @@ $opcao = readline("Digite sua opção: ");
 function desenhaCampo($larguraBorda, $alturaBorda, Cobra $cobra, Maca $maca) {
     echo str_repeat('-', $larguraBorda) . PHP_EOL;
 
-    for ($x = 0; $x < $alturaBorda; $x++) {
-        for ($y = 0; $y < $larguraBorda; $y++) {
+    for ($x = 0; $x < $larguraBorda; $x++) {
+        for ($y = 0; $y < $alturaBorda; $y++) {
             if ($x == $cobra->x && $y == $cobra->y) {
                 $cobra->desenha($cobra);
             } elseif ($x == $maca->x && $y == $maca->y) {
