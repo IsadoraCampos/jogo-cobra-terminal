@@ -57,7 +57,7 @@ while (true) {
         }
 
         //Verifica se a cobra bateu nas bordas
-        if ($cobra->x < 0 || $cobra->x > $alturaBorda || $cobra->y < 0 || $cobra->y > $larguraBorda) {
+        if ($cobra->x < 0 || $cobra->x > $larguraBorda || $cobra->y < 0 || $cobra->y > $alturaBorda) {
             echo 'Fim de Jogo!' . PHP_EOL;
             echo 'Pontuação: ' . $pontuacao->getPontuacao() . PHP_EOL;
             $opcao = 0;
